@@ -1,0 +1,28 @@
+﻿@model IEnumerable<mongoNotes.Models.Note>
+
+@{
+    ViewBag.Title = "Notes";
+}
+
+<h2>My Notes</h2>
+
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>Note Text</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+        </tr>
+    }
+
+</table>
+<div>  @Html.Partial("Create", new mongoNotes.Models.Note())</div>
